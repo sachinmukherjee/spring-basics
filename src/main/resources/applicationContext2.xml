@@ -7,8 +7,13 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 	
-	
+	<bean id="happyFortuneService" 
+	      class="sachinmukherjee.spring_basics.services.HappyFortuneService">
+	</bean>	
 	    
-    <bean id="cricketCoach" class="sachinmukherjee.spring_basics.coach.Cricket"></bean>
+    <bean id="cricketCoach"
+          class="sachinmukherjee.spring_basics.coach.Cricket">
+          <constructor-arg ref="happyFortuneService"></constructor-arg>
+    </bean>
 
 </beans>
