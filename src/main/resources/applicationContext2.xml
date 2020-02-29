@@ -23,7 +23,11 @@
     
     <!-- DI using Setter Method -->
     <bean id="hockeyCoach"
-    	  class="sachinmukherjee.spring_basics.coach.Hockey">
+    	  class="sachinmukherjee.spring_basics.coach.Hockey"
+    	  scope="singleton"
+    	  init-method="welcome"
+    	  destroy-method="goodBye"
+    	  >
     	  <property name="service" ref="happyFortuneService" />
     	  <!-- Injecting property name using property file -->
     	  <property name="ownerName" value="${owner.name}" />

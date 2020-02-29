@@ -15,6 +15,6 @@ public class AppDI {
 		System.out.println(coach.getDailyTips());
 		System.out.println(coach.getDailyFortune());
 		//System.out.println(coach.);
-		
+		context.close();
 	}
 }
