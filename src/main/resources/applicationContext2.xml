@@ -7,6 +7,8 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 	
+	<!-- Reading property file -->
+	<context:property-placeholder location="classpath:owner.properties"/>
 	
 	<!-- IOC and DI -->
 	<bean id="happyFortuneService" 
@@ -23,6 +25,9 @@
     <bean id="hockeyCoach"
     	  class="sachinmukherjee.spring_basics.coach.Hockey">
     	  <property name="service" ref="happyFortuneService" />
+    	  <!-- Injecting property name using property file -->
+    	  <property name="ownerName" value="${owner.name}" />
+    	  <property name="ownerSurname" value="${owner.surname}" />
 	</bean>
 
 </beans>
