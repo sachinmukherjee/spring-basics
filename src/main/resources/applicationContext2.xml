@@ -7,13 +7,22 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 	
+	
+	<!-- IOC and DI -->
 	<bean id="happyFortuneService" 
 	      class="sachinmukherjee.spring_basics.services.HappyFortuneService">
 	</bean>	
+	
 	    
     <bean id="cricketCoach"
           class="sachinmukherjee.spring_basics.coach.Cricket">
-          <constructor-arg ref="happyFortuneService"></constructor-arg>
+          <constructor-arg ref="happyFortuneService" />
     </bean>
+    
+    <!-- DI using Setter Method -->
+    <bean id="hockeyCoach"
+    	  class="sachinmukherjee.spring_basics.coach.Hockey">
+    	  <property name="service" ref="happyFortuneService" />
+	</bean>
 
 </beans>
