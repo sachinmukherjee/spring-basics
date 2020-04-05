@@ -9,17 +9,17 @@ Spring basics IOC and DI
 </code>
 </br>
 <code>
-ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-Coach coach = context.getBean("cricketCoach",Coach.class);
-System.out.println(coach.getCoachName());
-System.out.println(coach.getDailyTips());
+ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml"); //Creating Container and reading all the from applicationContext.xml
+Coach coach = context.getBean("cricketCoach",Coach.class);  //It creates the object
+System.out.println(coach.getCoachName());	//Call for method
+System.out.println(coach.getDailyTips());	//call for method
 context.close();
 </code>
-<p>ApplicationContext is an interface in the org.springframework.context package and it has several implementations, and the ClassPathXmlApplicationContext is one of these.Initialize Container and Manage Beans</p>
+<p>ApplicationContext is an interface in the org.springframework.context package and it has several implementations, and the ClassPathXmlApplicationContext is one of these.Main functionality of it is to Initialize Container and Manage Beans</p>
 </br></br>
 <h3>Inversion of Control and DI</h3>
 <p>It is a pattern used to creating instance of objects that other object rely on without knowing at compile time which class will be used to provide the functionality</p>
-<p>Constructor Injection</p>
+<p><u>Constructor Injection</u></p>
 <p>Here we are using applicationContext.xml, AppDI.java</p>
 <code>
 &#60;bean id="happyFortuneService" class="sachinmukherjee.spring_basics.services.HappyFortuneService"&#62;&#60;/bean&#62;
@@ -29,3 +29,7 @@ context.close();
 &#60;/bean&#62;
 
 </code>
+
+<p><u>Setter Injection</u></p>
+<p>The Code Remains same as in the Constructor Injection  but the only difference is to change the xml file. </p>
+<p>Instead of &#60constructor-arg ref="happyFortuneService" /> use &#60property name="setterMethodName" ref="happyFortuneService" />
