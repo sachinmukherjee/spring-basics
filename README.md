@@ -31,5 +31,9 @@ context.close();
 </code>
 
 <p><u>Setter Injection</u></p>
-<p>The Code Remains same as in the Constructor Injection  but the only difference is to change the xml file. </p>
-<p>Instead of &#60constructor-arg ref="happyFortuneService" /> use &#60property name="setterMethodName" ref="happyFortuneService" />
+<p>The Code Remains same as in the Constructor Injection  but the only difference is to change the xml file and define a setter method in class file </p>
+<p>Instead of &#60constructor-arg ref="happyFortuneService" /> use &#60property name="setterMethodName" ref="happyFortuneService" /> </p>
+<br>
+<u>Value Injection</u>
+<p>Same as Setter Injection but instead of defining a setter method in the Concreate class file define a property name and in xml file give value to that property file</p>
+<p>&#60property name="propertyName" value="happyFortuneService" /&#62.</p>
