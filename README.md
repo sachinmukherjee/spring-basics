@@ -65,3 +65,30 @@ context.close();
 <p>
 	&#60;context:component-scan base-package="sachinmukherjee.spring_basics.annotation_driven.*">&#60; /context:component-scan>
 </p>
+
+
+### DI Using Configurations(Using Java Code) ###
+<p>In this we dont need any applicationContext.xml file we have to simply configure using a class</p>
+<p>There are the steps for Configrations</p>
+<ul>
+	<li>Create a Java class and annotate as @Configuration and then add @ComponentScan(package_to_scan="").</li>
+		
+  	<li>Then Simple Define Beans using DI Using Annotations technique</li>
+</ul>
+<code>
+@Configuration
+@ComponentScan(“package_name”)
+@PropertySource("classpath:sport.properties")
+public class SportConfig{}
+
+//Instantiate the Containers as Follows //
+AnnotationConfigApplicationContext context = 
+		new AnnotationConfigApplicationContext(SportConfig.class)
+</code>
+
+### Other Annotation/Methods are: ###
+<ul>
+	<li>@Scope - scope</li>
+	<li>@PostConstruct - init-method</li>
+	<li>@PreConstruct - destory-method<li>
+</ul>
