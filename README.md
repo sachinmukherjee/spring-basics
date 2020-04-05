@@ -37,3 +37,31 @@ context.close();
 <u>Value Injection</u>
 <p>Same as Setter Injection but instead of defining a setter method in the Concreate class file define a property name and in xml file give value to that property file</p>
 <p>&#60property name="propertyName" value="happyFortuneService" /&#62.</p>
+<br>
+<u>Value from Property File</u>
+<p>Create a Property File in resources folder where your applicationContext.xml file resides and use key value pair to define values. In applicationContext.xml file defince a xml tag under a bean in which you want to inject values.</p>
+<code>
+	<!-- Reading property file -->
+	<!-- Define this in applicationContext.xml file to read values from property file -->
+	&#60 context:property-placeholder location="classpath:owner.properties"/> 
+	
+	owner.name = "Sachin";   //In property File
+	
+	<bean id="cricketCoach" class="" >
+		<property name="propertyName" value="${owner.name}" />
+	</bean>
+</code>
+
+#### DI using Annotations ###
+
+<p>Dependency Injection using Annotation is simple. We dont have to define beans in xml file instead of that we have to use @Annotation to mark classes as bean. Using Annotations we can inject dependency using Constructor, Setter Method and Property Value.</p>
+<p>Some Common Annotations are: </p>
+<ul>
+	<li>@Component(beanname="") - Defines a Class as a bean.</li>
+	<li>@Qualifier(beanid="") - It resolves the autowiring conflict when multiple bean of same name are present</li>
+	<li>AutoWired - It allows you to skip the configration elsewhere of what to inject and just does it for you. It is used with Constructor, setter, property values</li>
+</ul>
+<p>For Using annotation we have to declare component scan bean in applicationContext.xml file. like this</p>
+<p>
+	&#60;context:component-scan base-package="sachinmukherjee.spring_basics.annotation_driven.*">&#60; /context:component-scan>
+</p>
